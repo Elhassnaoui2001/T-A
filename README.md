@@ -1,101 +1,135 @@
-# Chat with PDF Chatbot Technical Assessment
+# NestJs Project Starter for Technical Assessment
 
 ## Overview
-This technical assessment is designed to evaluate your skills in backend development and prompting techniques, particularly with NestJs, MongoDB, Pinecone, LangChain, and GPT-3.5 turbo. You will be building a chat application that integrates a PDF chatbot, inspired by an open-source repository in Next.js, with a focus on scientific discussions.
+This repository serves as a starter project for participants in a technical assessment. It is pre-configured with NestJs, MongoDB/Mongoose, and GraphQL Apollo, providing a solid foundation for building a backend application.
 
-## How to Participate
+## Technical Assessment Details
+For more information about the technical assessment and what is expected, please refer to the assessment documentation:
+[Technical Assessment Instructions](https://github.com/Thinkable-AI/Technical-Assessment-Starter/blob/main/README.md)
 
-### Join Thinkable’s Community
-- Access our Slack workspace by using the following invite link: [Join Tech-Challenge Channel](https://join.slack.com/share/enQtNjI3MTcwMjk0Njg4NC03MjAyOGVhZGI4OThkYTE1MzM5YzU5MDlkNjRhNTQ1YWM3NmZiZGFkNzk2N2I1ZWVkMTU5NzdlZjhlZjAzYWUx).
-- Once you have joined, navigate to the `#tech-challenge` channel.
-- This channel is dedicated to participants of the technical assessment. It is a space where you can engage with the community, ask questions, and seek clarifications about the assessment.
-- If you encounter any problems or need assistance, you can request help or a code review from our lead developers. Don't hesitate to reach out if you need support.
-- Remember, effective communication is a key aspect of the assessment and will be considered in the evaluation of your performance. We encourage you to actively participate in discussions and collaborate with others in the community.
-### Start Your Challenge
-- Set up a new GitHub repository to host your project.
-- Email the repository link to `soulaimane@thinkable.co` with the subject line 'Coding Challenge Software Engineer Intern Application by [Your First Name] [Your Last Name]'.
-- An email will be sent to you containing OpenAI API key.
+## Getting Started
 
-### Request Support
-- If you have any questions or need a code review, ask in the `#tech-challenge` channel.
+### Prerequisites
+- Node.js installed on your machine
+- MongoDB instance accessible either locally or remotely
 
-### Read Carefully
-- Before starting, read the instructions thoroughly.
-- Refer to the Links and Resources section for guidelines and best practices.
+### Installation
 
-## Evaluation Criteria
+Clone/Fork the repository and install dependencies:
+```bash
+npm install
+```
 
-- **Adherence to Instructions**: Follow the provided instructions closely.
-- **Software Engineering Principles**: Apply best practices in software development such as DRY, KISS, YAGNI, and SOLID.
-- **Code Readability**: Write clean, readable code.
-- **Git Commit History**: Maintain an orderly commit history.
-- **Documentation**: Provide clear and concise documentation.
-- **Learning and Adaptability**: Demonstrate the ability to learn new technologies and adapt to challenges.
-- **Communication**: Effectively communicate throughout the challenge.
-- **Prompting Techniques**: Use effective prompting techniques to ensure the chatbot follows instructions and maintains a scientific tone.
-- **Unit Tests**: Include unit tests to ensure code quality and reliability.
+### Configuration
 
-## Project Requirements
+Set up your environment variables:
+```bash
+cp .env.example .env
+# Edit .env to include your MongoDB URI
+```
 
-### Functional Requirements
-1. Users should be able to interact with the chatbot in a chat interface.
-2. The chatbot should be able to process and respond to user queries about scientific topics.
-3. PDFs should be uploaded on the backend and vectorized for the chatbot to reference content from these documents in its responses. The PDFs should be research papers from Arxiv about a specific scientific topic of your choice (e.g., Prompt Engineering, Quantum Computing, etc.).
-4. If the user asks the chatbot about a topic outside of the chosen scientific domain, the chatbot should apologize and steer the conversation back to the chosen topic.
+### Running the Project
 
-### Technical Requirements
-- Use **NestJs** for the backend service.
-- Use **NextJs** or **Angular** for the frontend.
-- Use **GraphQL** API communication.
-- Utilize **Pinecone** for vector search of PDF content.
-- Integrate **LangChain** and **GPT-3.5 turbo** for natural language processing and response generation.
-- Focus on backend development and the quality of prompting for the chatbot.
-- Develop the chatbot's personality to have a scientific tone.
-- Include unit tests for your code.
-- Store chat messages in **MongoDB** or your preferred Database. *
+Start the application with the following command:
+```bash
+npm start
+```
 
-### Nice to Have
-- Implement a **GitHub Actions CI/CD pipeline** for running tests, ESLint checks, TypeScript checks, or even deployment upon pushing code to the repository. This will help maintain code quality and streamline the development process.
+The application should now be running and connected to your MongoDB instance.
 
-### Optional
-- **Dockerize** the application using Docker Compose to simplify the setup and deployment process. This will allow for consistent development environments and ease of deployment to various environments.
+### GraphQL Playground
 
-By considering these additional "Nice to Have" and "Optional" features, you can further enhance the robustness and professionalism of your project. While they are not mandatory for the completion of the technical assessment, they are encouraged as they demonstrate a deeper understanding of modern development practices and DevOps principles.
+Access the GraphQL Playground by navigating to `http://localhost:3000/graphql` in your web browser (assuming the default port is used). You can interact with the GraphQL API and execute queries and mutations from here.
 
-### Similar Project Reference
-- Similar project in NextJS: [gpt4-pdf-chatbot-langchain](https://github.com/mayooear/gpt4-pdf-chatbot-langchain)
-- You can use the same frontend.
-- Focus more on backend development and prompting techniques.
+### Project Structure
 
-### Prompting Resources
-- Basics of Prompting: [Introduction to Basics](https://www.promptingguide.ai/introduction/basics)
-- Elements of a Prompt: [Understanding Elements](https://www.promptingguide.ai/introduction/elements)
-- Few-Shot Prompting: [Few-Shot Techniques](https://www.promptingguide.ai/techniques/fewshot)
-- RAG: [Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag)
-- GPT-4 & LangChain Tutorial: [How to Chat With A 56-Page PDF Document (w/Pinecone)](https://www.youtube.com/watch?v=ih9PBGVVOO4)
+- `app.resolver.ts` contains a sample `getHello` query for initial testing. You can remove or replace this with your own queries and mutations as you develop your project.
+- The `shared` module includes shared configurations and services that are commonly used across the application. This helps maintain a clean and modular codebase.
 
-### Submission Guidelines
-- Your code should be hosted in a public GitHub repository.
-- Include a README file with setup instructions and a brief overview of the project.
-- Document any assumptions or design decisions you make.
+### Using BaseModel and BaseRepository
 
-## Links and Resources
-### Stack Resources
-- [NestJs Documentation](https://docs.nestjs.com/)
-- [MongoDB Documentation](https://docs.nestjs.com/techniques/mongodb)
-- [Pinecone Documentation](https://www.pinecone.io/docs/)
-- [LangChain Documentation](https://js.langchain.com/docs/get_started/introduction)
+The backend project includes a `BaseModel` and `BaseRepository` which are designed to provide a consistent structure and common functionality for your models and repositories. It is required that you utilize these base classes when creating new models and repositories in your application.
 
-### Prompting Resources
-- Basics of Prompting: [Introduction to Basics](https://www.promptingguide.ai/introduction/basics)
-- Elements of a Prompt: [Understanding Elements](https://www.promptingguide.ai/introduction/elements)
-- Few-Shot Prompting: [Few-Shot Techniques](https://www.promptingguide.ai/techniques/fewshot)
-- RAG: [Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag)
-- GPT-4 & LangChain Tutorial: [How to Chat With A 56-Page PDF Document (w/Pinecone)](https://www.youtube.com/watch?v=ih9PBGVVOO4)
+#### BaseModel
 
+The `BaseModel` class is an abstract class that defines standard fields and methods that should be present in all your models. Here's an example of how to use `BaseModel` for a `User` class:
 
-## Instructions
-- Quality over speed: Aim for a well-structured, maintainable codebase.
-- Adhere to key software engineering principles: DRY, KISS, YAGNI, and SOLID.
-- Ensure the code is readable and maintainable.
-- Keep your git commit history clean and meaningful for
+```typescript
+import { BaseModel } from './base.model';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+
+@Schema()
+export class User extends BaseModel {
+  @Prop({ required: true })
+  name: string;
+
+  @Prop({ required: true, unique: true })
+  email: string;
+
+  // Additional user fields go here
+}
+
+export type UserDocument = User & Document;
+export const UserSchema = SchemaFactory.createForClass(User);
+```
+
+In this example, `User` inherits from `BaseModel`, which means it automatically includes fields like `id`, `createdAt`, and `updatedAt`. You can add additional fields specific to the `User` model as needed.
+
+#### BaseRepository
+
+The `BaseRepository` class provides a generic repository with common CRUD operations. You should extend this class when creating your own repositories. Here's an example of a `UserRepository` that extends `BaseRepository`:
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { User, UserDocument } from './user.model';
+import { BaseRepository } from './base.repository';
+
+@Injectable()
+export class UserRepository extends BaseRepository<UserDocument> {
+  constructor(@InjectModel(User.name) userModel: Model<UserDocument>) {
+    super(userModel);
+  }
+
+  // You can add additional user-specific methods here
+}
+```
+
+In this example, `UserRepository` extends `BaseRepository`, providing it with standard CRUD operations for the `User` model. You can inject the `UserRepository` into your services and use it to interact with the database.
+
+#### Integration in Services
+
+Here's how you might use the `UserRepository` in a service:
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { UserRepository } from './user.repository';
+
+@Injectable()
+export class UserService {
+  constructor(private readonly userRepository: UserRepository) {}
+
+  async createUser(userData: CreateUserDto): Promise<User> {
+    const newUser = await this.userRepository.create(userData);
+    return newUser;
+  }
+
+  // Additional service methods go here
+}
+```
+
+## Development Notes
+
+This starter project is part of a technical assessment and is configured with a basic setup. You may need to add additional configurations and packages depending on the requirements of your application. Ensure to secure your `.env` file and never commit sensitive information to your version control system.
+
+## Forking the Project
+
+Participants are encouraged to fork this project to begin their assessment. This allows you to have a personal copy of the starter project that you can modify and use for your submission.
+
+## License
+
+This project is open-sourced under the MIT License. See the LICENSE file for more details.
+
+Good luck with your technical assessment!
